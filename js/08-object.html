@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        //object group the multiple value(porperty value pair)
+        /*
+    const product = {
+        name: 'socks',
+        price: 100
+
+    };
+console.log(product);
+console.log(product.name);
+product.price=150;
+console.log(product.price);
+ product.newproperty='gloves';
+ console.log(product.newproperty);
+ delete product.newproperty;
+ */
+ const product2 = {
+        name: 'shirt',
+        'delivery-time': '1 day',
+        rating:{
+            stars:4.5,
+            count:6
+        },
+        fun: function function1(){
+            console.log('a function is another type of value so funston can be create on the object');
+        }
+
+    };
+    console.log(product2['shirt']);
+    //that doesnot work normally like delivery-time or any calculation time+del
+   console.log(product2['delivery-time']);
+   console.log(product2['rating']);
+   console.log(product2.rating.count);
+   console.log(product2['rating.count']);
+    product2.fun();
+    console.log(JSON.stringify(product2));
+       //json doesnot support function object and need double quote - can be use to all programming language 
+       const jsonString = JSON.stringify(product2);
+       console.log(JSON.parse(jsonString)); // convert into javascript object 
+        /* local storage built in object -save values more permanently  variables are only untill its refresh ,refresh then its gone */
+        localStorage.setItem('message','hello'); //local storage store string only  
+        console.log(localStorage.getItem('message'));
+        console.log('hello'.length);
+        console.log('hello'.toUpperCase());// auto boxing js convert this string 'hello 'into object to work with func , it works with integre n boolean 
+        const object1 ={
+            meassage:'hello'
+        };
+        const object2 =object1 // refernce doesnot copy but pint at the objest somewher in memory 
+        console.log(object1);
+        object1.meassage='good job'; //const inside object can be change 
+        console.log(object2);
+        const object3 ={
+            meassage:'good job'
+        };
+        console.log(object3==object1);//object comaares not but references so flase 
+        console.log(object2==object1);//true as same reference
+        const object4 ={
+            message:'good job',
+             price:200
+        }; 
+       // const message = object4.message;
+          // const {message} = object4;
+        // console.log(message);
+         const { message, price} = object4;
+         console.log(message);
+         console.log(price);
+         const object5 = {
+          // message:message  
+             message,
+             /*method: function metho(){
+
+                console.log('mehtod');
+             }*/
+             method(){
+                console.log('mehtod');
+             }
+
+         };
+         console.log(object5);
+         object5.method();
+
+</script>
+
+</body>
+</html>

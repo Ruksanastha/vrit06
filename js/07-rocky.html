@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<title>Document</title>
+</head>
+<body>
+<button onclick= "playsGame ('rock')">Rock</button>
+<button onclick= "playsGame('scissors')">scissors</button>
+<button onclick= "playsGame('paper')">paper</button>
+
+<script>
+    let result ='';
+
+    function playsGame(playMove){
+        
+        let computerMove = pickComputerMove();
+        if(playMove === "rock"){
+            if (computerMove === "rock"){
+                    result ="Tie";
+                }
+                else if (computerMove === "scissors"){
+                    result ="You lose";
+                }
+                else{
+                    result ="You win";
+                }
+            }
+
+        if (playMove === "paper"){
+            if (computerMove === "rock"){
+                result ='You lose';
+            }
+            else if (computerMove === "scissors"){
+                result ="You Win";
+            }
+            else{
+                result ="Tie";
+            } 
+        }
+        if (playMove === "scissors"){
+            if (computerMove === "rock"){
+                result ='You win';
+            }
+            else if (computerMove === "scissors"){
+                result ="Tie";
+            }
+            else{
+                result ="You win";
+            }  
+        }
+        alert('You picked '+playMove+'. Computer picked '+ computerMove +'. '+result+'.');
+
+        }
+    
+    
+
+    function pickComputerMove(){
+        let computerMove='';
+        const randomNumber = Math.random();
+
+        if (randomNumber >= 0 && randomNumber <  1/3 ) { 
+        computerMove = "rock";
+        } else if( randomNumber >= 1/3 &&  randomNumber < 2/3 ) {
+        computerMove = "paper";
+        } else {
+        computerMove = "scissors";    
+        }
+        return computerMove;
+    }
+
+</script>
+</body>
+</html>

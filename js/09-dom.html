@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>dom</title>
+</head>
+<body>
+    <button>hello</button>
+    <button class="btn">button1</button>
+    <br>
+     <h1>Amazon Shipping Calculator</h1>
+     <p>Orders under $40  +$10 shipping</p>
+     <p>Orders above $40   free shipping</p>
+        <input class="jsinput" placeholder="cost of Orders" onkeydown="handleCost(event)">
+           
+            <button onclick="calculate()">Calculate</button>
+            <p class="jsresult"></p>
+
+    <script> 
+      /*
+        console.log(document.title);
+        document.title='changed';
+        console.log(document.title);
+        console.log(document.body); // dom help to embed html in js
+        console.log(typeof  document.body);
+        console.log( document.body.innerHTML);
+        document.body.innerHTML= '<button> good job</button>';
+        
+        console.log()
+        document.body.innerHTML='hello';
+        document.title='DOM';
+        
+        console.log(document.querySelector('button')); // help to get any htmwl elemnt to js 
+       document.querySelector('button')
+        .innerHTML='button change gareko'; 
+        // if has query help to specific the inner html change to be made 
+        const buttonelement= document.querySelector('.btn');
+        console.log( buttonelement);*/
+        function handleCost(event){
+            console.log('typing');
+        console.log(event.key);
+        if(event.key==='Enter'){
+            calculate();
+        }
+
+        }
+
+      function calculate(){
+        const order=document.querySelector('.jsinput');
+        let cost =  Number(order.value);// get value inside the test box , number() is a function that convert inside value /string into number
+        if(cost < 40){
+           cost =cost+10;
+           console.log(typeof cost);//cost is a string ,string +any number results into string so 2010
+            
+        }
+        
+        document.querySelector('.jsresult').innerHTML=`$${cost}`;
+         
+      }  
+    </script>
+</body>
+</html>
